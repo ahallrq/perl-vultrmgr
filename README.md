@@ -4,9 +4,11 @@
 
 ##### Requirements
 
+*Note: Earlier versions may work. These are just the versions I used in development.*
+
 * perl >= 5.0 < 6.0
-* libwww-perl > 6.0
-* libjson-perl > 2.90
+* libwww-perl >= 6.15
+* libjson-perl >= 2.90
 
 Also requires a Vultr API key with the nessesary permissions.
 
