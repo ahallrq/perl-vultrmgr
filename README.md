@@ -4,11 +4,11 @@
 
 ##### Requirements
 
-*Note: Earlier versions may work. These are just the versions I used in development.*
+*Note: Earlier versions may work. The following versions tested were from Debian Jessie.*
 
-* perl >= 5.22 < 6.0
-* libwww-perl >= 6.15
-* libjson-perl >= 2.90
+* perl >= 5.20 < 6.0
+* libwww-perl >= 6.08
+* libjson-perl >= 2.61
 
 Also requires a Vultr API key with the nessesary permissions.
 
