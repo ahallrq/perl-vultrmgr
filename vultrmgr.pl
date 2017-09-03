@@ -9,6 +9,7 @@ use File::Basename;
 use API::Account;
 use API::App;
 use API::Auth;
+use API::Backup;
 
 our $API_KEY;
 
@@ -40,17 +41,20 @@ You can set an api key by exporting API_KEY=<key> as an environment variable.
 --account-info * - Show account information and balance.
 --app-list - Show a list of available applications.
 --auth-info * - Show information on the supplied api key.
+--backup-list * - Display a list of available backups.
 EOF
 }
 
 my $arg_account_info;
 my $arg_app_list;
 my $arg_auth_info;
+my $arg_backup_list;
 my $arg_help;
 
 GetOptions( "account-info" => \$arg_account_info,
             "app-list" => \$arg_app_list,
             "auth-info" => \$arg_auth_info,
+            "backup-list" => \$arg_backup_list,
             "help" => \$arg_help )
 or die("Error in command line arguments.\n");
 
@@ -64,6 +68,8 @@ if ($arg_account_info) {
     App::List();
 } elsif ($arg_auth_info) {
     Auth::Info();
+} elsif ($arg_backup_list) {
+    Backup::List();
 } elsif ($arg_help) {
     help();
 } else {
