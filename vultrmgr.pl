@@ -8,6 +8,7 @@ use File::Basename;
 
 use API::Account;
 use API::App;
+use API::Auth;
 
 our $API_KEY;
 
@@ -34,19 +35,22 @@ sub help {
     usage();
     print <<EOF;
 Options with a star (*) require an api key.
-You can set an api key by exporting API_KEY=<key> as an enviroment variable.
+You can set an api key by exporting API_KEY=<key> as an environment variable.
 
 --account-info * - Show account information and balance.
 --app-list - Show a list of available applications.
+--auth-info * - Show information on the supplied api key.
 EOF
 }
 
 my $arg_account_info;
 my $arg_app_list;
+my $arg_auth_info;
 my $arg_help;
 
 GetOptions( "account-info" => \$arg_account_info,
             "app-list" => \$arg_app_list,
+            "auth-info" => \$arg_auth_info,
             "help" => \$arg_help )
 or die("Error in command line arguments.\n");
 
@@ -58,6 +62,8 @@ if ($arg_account_info) {
     Account::Info();
 } elsif ($arg_app_list) {
     App::List();
+} elsif ($arg_auth_info) {
+    Auth::Info();
 } elsif ($arg_help) {
     help();
 } else {
